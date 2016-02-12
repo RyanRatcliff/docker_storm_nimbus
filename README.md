@@ -25,5 +25,5 @@ docker run -d -P --link my_zookeeper:zookeeper ryanratcliff/nimbus
 
 ### To startup with specific port exposed
 ```
-docker run -d p 8080:8080 --link my_zookeeper:zookeeper ryanratcliff/nimbus
+docker run -d -p 8080:8080 --link my_zookeeper:zookeeper ryanratcliff/nimbus
 ```
