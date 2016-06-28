@@ -15,12 +15,23 @@
 # limitations under the License.
 
 ########### These MUST be filled in for a storm configuration
+# storm.zookeeper.servers:
+#     - "server1"
+#     - "server2"
 storm.zookeeper.servers:
-     - "zookeeper"
-
-nimbus.host: "nimbus"
+  - "zookeeper"
 
 storm.local.dir: "/opt/apache-storm/data"
+
+nimbus.seeds: ["nimbus"]
+
+supervisor.slots.ports:
+    - 6700
+    - 6701
+    - 6702
+    - 6703
+# 
+# nimbus.seeds: ["host1", "host2", "host3"]
 # 
 # 
 # ##### These may optionally be filled in:
@@ -41,7 +52,7 @@ storm.local.dir: "/opt/apache-storm/data"
 
 ## Metrics Consumers
 # topology.metrics.consumer.register:
-#   - class: "backtype.storm.metric.LoggingMetricsConsumer"
+#   - class: "org.apache.storm.metric.LoggingMetricsConsumer"
 #     parallelism.hint: 1
 #   - class: "org.mycompany.MyMetricsConsumer"
 #     parallelism.hint: 1
